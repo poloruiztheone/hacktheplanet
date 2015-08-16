@@ -1,0 +1,21 @@
+  var mult = function(arg1, arg2)
+    $.ajax({
+      url: "webservice.php?action=mult&arg1="+arg1+"&arg2="+arg2
+    }).done(function(data) {
+      console.log(data);
+    });
+  }
+
+
+
+$.getJSON( "ajax/test.json", function( data ) {
+  var items = [];
+  $.each( data, function( key, val ) {
+    items.push( "<li id='" + key + "'>" + val + "</li>" );
+  });
+ 
+  $( "<ul/>", {
+    "class": "my-new-list",
+    html: items.join( "" )
+  }).appendTo( "body" );
+});

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>LemonTreex financial services</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+
+    <link href="css/grayscale.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- About Section -->
+    <section id="about" class="container content-section text-center">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>Result</h2>
+        </div>
+        <center>
+        <div class="col">
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="csmall-box cbg-green">
+                <div class="cinner">
+                  <h1>USD/MXN</h1>
+                  <h3>3<sup style="font-size: 20px">%</sup> more money</h3>
+                  <p>rate: 16.371</p>
+                </div>
+                <div class="cicon">
+                  <i class="cion cion-stats-bars"></i>
+                </div>
+                <a href="#" class="csmall-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->        
+        </div>
+        <div class="col">
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="csmall-box cbg-blue">
+                <div class="cinner">
+                  <h1>MXN/USD</h1>
+                  <h3>2<sup style="font-size: 20px">%</sup> more money</h3>
+                  <p>rate: 0.061</p>
+                </div>
+                <div class="cicon">
+                  <i class="cion cion-stats-bars"></i>
+                </div>
+                <a href="#" class="csmall-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->        
+        </div>
+        </center>
+    </section>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/grayscale.js"></script>
+
+    <!-- Submit JQuery -->
+    <script type="text/javascript">
+
+        $( "#demoSubmit" ).submit(function( event ) {
+            var _nombre = $("#txtName").val();
+            var _amount = $("#txtAmount").val();
+            var _baseCu = "USD";
+            var _quoteC = "MXN";
+            var _sym = _baseCu + "/" + _quoteC;
+            var _email  = $("#txtMail").val();
+            var _midRate;
+            alert(_nombre + "," + _amount + "," + _sym + "," + _email);
+            
+            $.ajax({
+              url: "http://lemontree.cloudapp.net/API/insertClient?name=" + _nombre + "&email=" + _email
+            }).done(function(data) {
+              alert("Success!");
+            });
+            event.preventDefault();
+        });
+    </script>
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    
+
+
+
+    <style type="text/css">
+        .csmall-box {
+            border-radius: 2px;
+            position: relative;
+            display: block;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+        .cbg-green, .callout.callout-success, .alert-success, .label-success, .modal-success .modal-body {
+            background-color: #00a65a !important;
+        }
+        .cbg-blue {
+            background-color: #2572D6 !important;
+        }
+        .cinner {
+            padding: 10px;
+        }
+        .cicon {
+            -webkit-transition: all .3s linear;
+            -o-transition: all .3s linear;
+            transition: all .3s linear;
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            z-index: 0;
+            font-size: 90px;
+            color: rgba(0,0,0,0.15);
+        }
+        .cion {
+            display: inline-block;
+            font-family: "Ionicons";
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            text-rendering: auto;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .cion-stats-bars{
+            display: inline-block;
+            font-family: "Ionicons";
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            text-rendering: auto;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .csmall-box-footer {
+            position: relative;
+            text-align: center;
+            padding: 3px 0;
+            color: #fff;
+            color: rgba(255,255,255,0.8);
+            display: block;
+            z-index: 10;
+            background: rgba(0,0,0,0.1);
+            text-decoration: none;
+        }
+    </style>
+
+
+</body>
+
+</html>
